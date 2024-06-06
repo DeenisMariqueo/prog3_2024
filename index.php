@@ -8,7 +8,8 @@
 <body>
     <?php
           print "mi primera pagina";
+          print "Bocaboca";
 ?>
-lorem ip epsom
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti quas error molestiae sit praesentium illum, ipsam eum id atque officia recusandae, necessitatibus quod quam architecto consectetur culpa iure. Iure, facere!
 </body>
 </html>
