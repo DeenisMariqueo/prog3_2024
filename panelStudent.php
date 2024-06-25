@@ -4,53 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Student</title>
+    <link rel="stylesheet" href="css/alertify.css" />
+    <link rel="stylesheet" href="css/themes/default.css" />
 </head>
 <body>
-    <h1> Panel de Estudiantes </h1>
-    <table> 
+   <h1>Panel de Estudiantes</h1>
+   <table>
         <thead>
             <tr>
-                <th>ID Estudiantes</th>
+                <th>ID Estudiante</th>
                 <th>Apellido</th>
                 <th>Nombre</th>
                 <th>DNI</th>
-                <th>fecha Nacimiento</th>
+                <th>Fecha Nac.</th>
                 <th>Tel&eacute;fono</th>
                 <th>Acciones</th>
-                
-            </tr>
-
-
+            </tr>   
         </thead>
-
         <tbody>
             <?php
-            include("model/student.php");
-            $student= new Student();
-            $allStudents= $student->getAllStudents();
-            if($allStudents){
-                foreach($allStudents as $data){
-                    print "<tr>";
-                    print "<td>".$data["idStudent"]."</td>";
-                    print "<td>".$data["Surname"]."</td>";
-                    print "<td>".$data["Name"]."</td>";
-                    print "<td>".$data["DNI"]."</td>";
-                    print "<td>".$data["Birthdate"]."</td>";
-                    print "<td>".$data["Phone"]."</td>";
-                    print "<td> Los 2 Botones  </td>";
-                    print "</tr>";
-
-                }
-
-            }else {
-                print "No existe estudiantes cargados";
-
-            }
+                include("model/student.class.php");
+                $student= new Student();
+                $allStudent= $student->getAllStudents();
+                if($allStudent){
+                    foreach($allStudents as $data){
+                        print "<tr>";
+                        print"<td>".$data["idStudent"]."</td>";
+                        print"<td>".$data["Surname"]."</td>";
+                        print"<td>".$data["name"]."</td>";
+                        print"<td>".$data["dni"]."</td>";
+                        print"<td>".$data["birthdate"]."</td>";
+                        print"<td>".$data["phone"]."</td>";
+                        print"<td> colocar los 2 botones</td>";
+                        print "<td> <button type='button' name='editar' value='Editar' onclick=\"window.location.href=formEditStudent.php?idStudent=".$data["idStudent"]."';\" /> ";
+                        print " <button type='button' name='eliminar' value='Eliminar' onclick=''/> </td";
+                        print "</tr>";
+                    }
+                }else{
+                    print"No existe estudiantes cargados";
+                }     
             ?>
-
         </tbody>
-
-    </table>
-
+   </table>
 </body>
+<script src="js/jquery.js" ></script>
+<script src="js/alertify.js" ></script>
+
 </html>
